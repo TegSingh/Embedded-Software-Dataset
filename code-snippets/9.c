@@ -16,17 +16,13 @@ struct seq_file
 
 void *seq_buffer_allocation(unsigned long size)
 {
-    if (unlikely(size > LIMIT))
-    {
-        return NULL;
-    }
     return malloc(size);
 }
 
 int main()
 {
     struct seq_file *m;
-    struct seq_file n = {"", 200, 0};
+    struct seq_file n = {"", 2000, 0};
     m = &n;
     m->buf = (char *)seq_buffer_allocation(m->size);
 

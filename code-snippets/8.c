@@ -5,7 +5,7 @@
 #include <errno.h>
 
 #define unlikely(x) __builtin_expect(!!(x), 0)
-#define LIMIT 1000
+#define LIMIT 10000
 
 struct seq_file
 {
@@ -26,7 +26,7 @@ void *seq_buffer_allocation(unsigned long size)
 int main()
 {
     struct seq_file *m;
-    struct seq_file n = {"", 200, 0};
+    struct seq_file n = {"", 2000, 0};
     m = &n;
     m->buf = (char *)seq_buffer_allocation(m->size);
 

@@ -1,8 +1,9 @@
+// CVE - 2021 - 37576
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
 
-struct rtas_args
+    struct rtas_args
 {
     int nargs;
     int args[16];

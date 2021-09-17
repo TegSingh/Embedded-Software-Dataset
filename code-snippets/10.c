@@ -1,4 +1,4 @@
-// CVE-2021-33909
+// CVE - 2021 - 33909
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,10 +16,6 @@ struct seq_file
 
 void *seq_buffer_allocation(unsigned long size)
 {
-    if (unlikely(size > LIMIT))
-    {
-        return NULL;
-    }
     return malloc(size);
 }
 
