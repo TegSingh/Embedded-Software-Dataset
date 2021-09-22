@@ -1,4 +1,4 @@
-// Program for Linux Security vulnerability CVE-2021-38160
+// CVE-2021-38160
 // data corruption or loss can be triggered by an untrusted device that supplies a buf->len value exceeding the buffer size.
 #include <stdio.h>
 #include <string.h>

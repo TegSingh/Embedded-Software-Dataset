@@ -26,7 +26,7 @@ size_t add_slot_source(const char *buf, size_t nbytes)
 
     strscpy(drc_name, buf, nbytes + 1);
     printf("String copied successfully\n");
-
+    // add comments and document these changes
     end = strchr(drc_name, '\n');
     if (end)
         *end = '\0';

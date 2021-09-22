@@ -2,5 +2,6 @@
   "files.associations": {
     "*html": "html",
     "string.h": "c"
-  }
+  },
+  "C_Cpp.errorSquiggles": "Disabled"
 }
