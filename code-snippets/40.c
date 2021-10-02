@@ -30,12 +30,6 @@ static int sco_sock_getsockopt(struct socket *sock, int optname)
     if (optname == BT_VOICE)
     {
         printf("BT_VOICE\n");
-        // Need error handling in case bluetooth does not indicate connection
-        if (sk->sk_state != BT_CONNECTED)
-        {
-            err = -ENOTCONN;
-            return err;
-        }
     }
     if (optname == BT_PHY)
     {
@@ -44,13 +38,6 @@ static int sco_sock_getsockopt(struct socket *sock, int optname)
     if (optname == BT_RCVMTU)
     {
         printf("BT_RCVMTU\n");
-        // Need error handling in case bluetooth does not indicate
-        if (sk->sk_state != BT_CONNECTED)
-        {
-            // Error showing not connected
-            err = -ENOTCONN;
-            return err;
-        }
     }
     if (optname == BT_SNDMTU)
     {
