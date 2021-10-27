@@ -27,6 +27,7 @@ size_t add_slot_source(const char *buf, size_t nbytes)
     printf("String copied successfully\n");
 
     end = strchr(drc_name, '\n');
+
     // Wrong specification of end character for string
     if (!end)
         end = &drc_name[nbytes];

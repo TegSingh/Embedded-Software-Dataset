@@ -3,7 +3,7 @@
 #include <string.h>
 #include <errno.h>
 
-    struct rtas_args
+struct rtas_args
 {
     int nargs;
     int args[16];

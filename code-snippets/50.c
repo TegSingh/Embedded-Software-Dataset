@@ -8,10 +8,12 @@
 
 char *strscpy(char *dest, const char *src, size_t n)
 {
-    size_t i;
-
-    for (i = 0; i < n && src[i] != '\0'; i++)
+    size_t i = 0;
+    while (i < n && src[i] != '\0')
+    {
         dest[i] = src[i];
+        i++;
+    }
 
     return dest;
 }
@@ -23,21 +25,23 @@ size_t add_slot_source(const char *buf, size_t nbytes)
     int rc;
 
     // No size handling
-
-    strscpy(drc_name, buf, nbytes + 1);
+    memcpy(drc_name, buf, nbytes);
     printf("String copied successfully\n");
 
-    // add comments and document these changes
     end = strchr(drc_name, '\n');
-    if (end)
-        *end = '\0';
+
+    // Wrong specification of end character for string
+    if (!end)
+        end = &drc_name[nbytes];
+    *end = '\0';
 
     return nbytes;
 }
 
 int main()
 {
-    char buf[] = "This is a message and this is supposed to be higher than the drc name value specified such that a user-controlled buffer overflow occurs";
+    // Message longer than len specified
+    char buf[] = "This is a message which can possibly create errors in case this message is longer than MAX_DRC_NAME_LEN";
     size_t nbytes = strlen(buf);
     size_t rv = add_slot_source(buf, nbytes);
     printf("%ld\n", rv);

@@ -8,10 +8,12 @@
 
 char *strscpy(char *dest, const char *src, size_t n)
 {
-    size_t i;
-
-    for (i = 0; i < n && src[i] != '\0'; i++)
+    size_t i = 0;
+    while (i < n && src[i] != '\0')
+    {
         dest[i] = src[i];
+        i++;
+    }
 
     return dest;
 }
@@ -26,7 +28,6 @@ size_t add_slot_source(const char *buf, size_t nbytes)
 
     strscpy(drc_name, buf, nbytes + 1);
     printf("String copied successfully\n");
-
     // add comments and document these changes
     end = strchr(drc_name, '\n');
     if (end)
